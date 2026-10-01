@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos días, bonita 💗</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --rosa: #f6b8c8;
+            --rosa-fuerte: #d96b91;
+            --crema: #fff9f5;
+            --texto: #754658;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+            color: var(--texto);
+            background:
+                radial-gradient(ellipse at 50% 0%, #fff5d8 0%, transparent 40%),
+                linear-gradient(160deg, #fbe2e9, #fff8f1 55%, #f9dce6);
+            overflow-x: hidden;
+        }
+
+        .fondo {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .corazon {
+            position: absolute;
+            bottom: -50px;
+            color: #dc789b;
+            opacity: 0;
+            animation: flotar linear infinite;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .5;
+            }
+
+            85% {
+                opacity: .35;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(35deg);
+                opacity: 0;
+            }
+        }
+
+        .contenedor {
+            position: relative;
+            z-index: 1;
+            width: min(100% - 28px, 500px);
+            margin: 0 auto;
+            padding: 30px 0 35px;
+        }
+
+        .superior {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 7px 15px;
+            background: #ffffffa8;
+            border: 1px solid #ffffff;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--rosa-fuerte);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(49px, 12vw, 68px);
+            font-weight: 400;
+            color: #b84e78;
+            margin: 10px 0 0;
+            line-height: 1.2;
+        }
+
+        .subtitulo {
+            font-size: 13px;
+            color: #956879;
+            margin-top: 4px;
+        }
+
+        .tarjeta {
+            position: relative;
+            background: #fffaf7e8;
+            border: 1px solid #ffffff;
+            border-radius: 28px;
+            padding: 24px 20px;
+            box-shadow: 0 18px 55px #b9678220;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .amanecer {
+            height: 175px;
+            position: relative;
+            margin: -24px -20px 20px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #f9dbe0 0%, #f9d5bd 58%, #ffe9ca 100%);
+        }
+
+        .sol {
+            position: absolute;
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #fff5c9, #f7b98b);
+            border-radius: 50%;
+            left: 50%;
+            top: 38px;
+            transform: translateX(-50%);
+            box-shadow: 0 0 45px #ffdf9c99;
+            animation: respirar 4s ease-in-out infinite;
+        }
+
+        @keyframes respirar {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px #ffdf9c88;
+            }
+
+            50% {
+                box-shadow: 0 0 65px #ffdf9cdd;
+            }
+        }
+
+        .nube {
+            position: absolute;
+            font-size: 36px;
+            color: #fff9f5;
+            opacity: .75;
+        }
+
+        .nube.uno {
+            top: 25px;
+            left: 12%;
+        }
+
+        .nube.dos {
+            top: 65px;
+            right: 9%;
+            font-size: 28px;
+        }
+
+        .colinas {
+            position: absolute;
+            width: 130%;
+            height: 90px;
+            bottom: -48px;
+            left: -15%;
+            border-radius: 50% 50% 0 0;
+            background: #eab0b9;
+        }
+
+        .colinas.dos {
+            width: 140%;
+            left: 20%;
+            bottom: -58px;
+            background: #d992a7;
+        }
+
+        .mensaje-pequeno {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bd7890;
+            font-weight: 800;
+            margin-bottom: 13px;
+        }
+
+        #frase {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(31px, 8vw, 41px);
+            line-height: 1.35;
+            color: #a94770;
+            min-height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .3s, transform .3s;
+        }
+
+        #frase.cambiando {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .corazon-central {
+            font-size: 24px;
+            margin: 15px 0;
+            color: #dc7798;
+            animation: latir 1.6s ease-in-out infinite;
+        }
+
+        @keyframes latir {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.18);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.12);
+            }
+        }
+
+        .separador {
+            width: 70px;
+            height: 1px;
+            background: #e9b7c7;
+            margin: 0 auto 18px;
+        }
+
+        .descripcion {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #916979;
+            margin-bottom: 23px;
+        }
+
+        .boton {
+            width: 100%;
+            border: none;
+            border-radius: 16px;
+            padding: 15px 18px;
+            background: linear-gradient(135deg, #d96b91, #bf4e7b);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 20px #d96b913b;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .boton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px #d96b914c;
+        }
+
+        .boton:active {
+            transform: scale(.98);
+        }
+
+        .boton-secundario {
+            background: #fff;
+            color: #b9577e;
+            border: 1px solid #f2d4df;
+            box-shadow: none;
+            margin-top: 10px;
+        }
+
+        .firma {
+            text-align: center;
+            margin-top: 23px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #a27887;
+        }
+
+        .firma strong {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            color: #b84e78;
+        }
+
+        .pie {
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-top: 23px;
+            color: #bc899b;
+        }
+
+        .notificacion {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            transform: translate(-50%, 20px);
+            background: #8d405e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        .notificacion.visible {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        @media (max-width: 380px) {
+            .contenedor {
+                padding-top: 20px;
+            }
+
+            .tarjeta {
+                padding: 20px 16px;
+            }
+
+            .amanecer {
+                margin: -20px -16px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="fondo" id="fondo"></div>
+
+    <main class="contenedor">
+
+        <header class="superior">
+            <span class="etiqueta">✦ Un detalle para ti ✦</span>
+            <h1>Buenos días, bonita</h1>
+            <p class="subtitulo">Hoy también mereces recordar lo especial que eres. ♡</p>
+        </header>
+
+        <section class="tarjeta">
+
+            <div class="amanecer">
+                <div class="sol"></div>
+                <span class="nube uno">☁</span>
+                <span class="nube dos">☁</span>
+                <div class="colinas"></div>
+                <div class="colinas dos"></div>
+            </div>
+
+            <p class="mensaje-pequeno">Una pequeña dedicatoria</p>
+
+            <div id="frase">
+                Buenos días, preciosa.
+                Ojalá hoy sonrías tanto como me haces sonreír.
+            </div>
+
+            <div class="corazon-central">♡</div>
+            <div class="separador"></div>
+
+            <p class="descripcion">
+                Antes de que comience tu día, quiero recordarte algo:
+                eres más bonita de lo que a veces imaginas,
+                y mereces un día lleno de cosas lindas.
+            </p>
+
+            <button class="boton" onclick="nuevaFrase()">
+                💗 Regálame otra frase
+            </button>
+
+            <button class="boton boton-secundario" onclick="compartirFrase()">
+                ♡ Compartir mensajito
+            </button>
+
+            <div class="firma">
+                Que tu mañana sea tan bonita como tu sonrisa.<br>
+                <strong>Con mucho cariño ♡</strong>
+            </div>
+
+        </section>
+
+        <footer class="pie">
+            HECHO CON CARIÑO, PENSANDO EN TI · ✧
+        </footer>
+
+    </main>
+
+    <div class="notificacion" id="notificacion">
+        Mensajito copiado con cariño 💗
+    </div>
+
+    <script>
+
+        const frases = [
+            "Buenos días, bonita. Espero que hoy te pasen cosas lindas.",
+            "Espero que hayas descansado bien y que hoy todo te salga bonito.",
+            "Buenos días. No olvides sonreír, que te queda muy bien.",
+            "Ojalá hoy tengas un día tranquilo y muchos motivos para estar feliz.",
+            "Solo pasaba a desearte un bonito día. Cuídate mucho.",
+            "Espero que hoy te vaya bien en todo lo que hagas.",
+            "Buenos días, espero que hoy tengas un poquito de todo lo que te hace feliz.",
+            "Que tengas un lindo día y que nada te quite esa bonita sonrisa.",
+            "Solo quería recordarte que eres una persona muy bonita, por dentro y por fuera.",
+            "Espero que hoy te encuentres con algo que te haga sonreír de verdad.",
+            "Buenos días. Ojalá hoy sea uno de esos días que terminan con una sonrisa.",
+            "Qué bonito sería verte un ratito hoy. Mientras tanto, que tengas un lindo día.",
+            "Espero que hoy te sientas tan bonita como te ves.",
+            "Buenos días, tú. Sí, tú, la que hace más bonitos algunos de mis días.",
+            "Que hoy te vaya bonito, que te rías mucho y que todo salga como esperas.",
+            "A veces solo hace falta un mensajito para empezar mejor el día. Así que aquí está el mío.",
+            "No sé cómo estará tu mañana, pero espero que empiece bien.",
+            "Buenos días. Ojalá hoy tengas tiempo para ti y para hacer algo que disfrutes.",
+            "Hay personas con las que da gusto hablar, y tú eres una de ellas.",
+            "Espero que hoy tengas un día tan bonito como esos pequeños momentos que compartimos.",
+            "Buenos días, bonita. Que te vaya bien hoy, de verdad.",
+            "Un día más para recordarte que tienes una sonrisa muy bonita.",
+            "No hace falta una ocasión especial para desearte un buen día.",
+            "Espero que hoy te sucedan cosas que te hagan feliz, aunque sean pequeñas.",
+            "Buenos días. Cuídate mucho y no te olvides de comer.",
+            "Que tengas un bonito día. Ya luego me cuentas cómo te fue.",
+            "Me acordé de ti y quise desearte buenos días. Así de sencillo.",
+            "Ojalá hoy tengas un motivo inesperado para sonreír.",
+            "Buenos días. Espero que hoy todo sea un poquito más fácil para ti.",
+            "Qué lindo sería compartir un café contigo alguna mañana."
+        ];
+
+        let indiceAnterior = -1;
+
+        function nuevaFrase() {
+            let nuevoIndice;
+
+            do {
+                nuevoIndice = Math.floor(Math.random() * frases.length);
+            } while (nuevoIndice === indiceAnterior && frases.length > 1);
+
+            indiceAnterior = nuevoIndice;
+
+            const elemento = document.getElementById("frase");
+            elemento.classList.add("cambiando");
+
+            setTimeout(() => {
+                elemento.textContent = frases[nuevoIndice];
+                elemento.classList.remove("cambiando");
+            }, 300);
+        }
+
+        async function compartirFrase() {
+            const frase = document.getElementById("frase").textContent.trim();
+            const mensaje = "💗 Buenos días, bonita 💗\n\n" + frase +
+                "\n\nQue tengas un día hermoso. ♡";
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: "Buenos días, bonita 💗",
+                        text: mensaje
+                    });
+                } catch (error) {
+                    if (error.name !== "AbortError") copiarTexto(mensaje);
+                }
+            } else {
+                copiarTexto(mensaje);
+            }
+        }
+
+        async function copiarTexto(texto) {
+            try {
+                await navigator.clipboard.writeText(texto);
+                mostrarNotificacion("Mensajito copiado con cariño 💗");
+            } catch {
+                const area = document.createElement("textarea");
+                area.value = texto;
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand("copy");
+                area.remove();
+                mostrarNotificacion("Mensajito copiado con cariño 💗");
+            }
+        }
+
+        function mostrarNotificacion(texto) {
+            const aviso = document.getElementById("notificacion");
+            aviso.textContent = texto;
+            aviso.classList.add("visible");
+
+            setTimeout(() => {
+                aviso.classList.remove("visible");
+            }, 2300);
+        }
+
+        // Corazones flotantes de fondo
+        function crearCorazon() {
+            const fondo = document.getElementById("fondo");
+            const corazon = document.createElement("span");
+
+            corazon.className = "corazon";
+            corazon.textContent = Math.random() > 0.5 ? "♡" : "♥";
+            corazon.style.left = Math.random() * 100 + "%";
+            corazon.style.fontSize = (12 + Math.random() * 18) + "px";
+            corazon.style.animationDuration = (9 + Math.random() * 10) + "s";
+
+            fondo.appendChild(corazon);
+
+            setTimeout(() => corazon.remove(), 19000);
+        }
+
+        setInterval(crearCorazon, 850);
+        crearCorazon();
+        crearCorazon();
+        crearCorazon();
+    </script>
+
+</body>
+
+</html>
